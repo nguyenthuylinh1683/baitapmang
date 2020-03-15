@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a =Array();
+        for (let i=0;i<10;i++){
+            a[i]=Math.floor(Math.random()*11+20);//20 đến 30 có 11 số, +20 có nghĩa là bắt đầu từ số 20//
+        }
+        let n=+prompt("Nhập một số bất kỳ");
+        document.write(a);
+        let thu=0;
+        for (let i=0;i<10;i++){
+            if (n==a[i]){thu++}
+        }
+        if (thu==0){alert("Số bạn chọn không xuất hiện trong mảng")}
+            else {alert("Số bạn chọn có xuất hiện trong mảng " + thu)}
+    </script>
+</body>
+</html>

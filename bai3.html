@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let n = Array(5);
+        for (let i = 0; i < 5; i++) {
+            n[i] = Array(5);
+        }
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                n[i][j] = Math.floor(Math.random() * 71 + 20);
+                document.write(n[i][j] + "&nbsp&nbsp")
+            }
+            document.write("<br>")
+        }
+        let max = 0;
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (n[i][j] > max) { max = n[i][j] }
+            }
+        }
+        document.write("Số lớn nhất trong mảng là: " + max + "<br>")
+        let min = n[0][0];
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (n[i][j] < min) { min = n[i][j] }
+            }
+        }
+        document.write("Số nhỏ nhất trong mảng là: " + min + "<br>")
+        let sochan = "";
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                if (n[i][j] % 2 == 0) {
+                    sochan += n[i][j] + ";"
+                }
+            }
+        }
+        document.write("Các số chẵn trong mảng là: " + sochan + "<br>")
+        let songuyento = "";
+        let tongso=0;
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                let dem = 0;
+                for (let k = 2; k <= n[i][j] / 2; k++) {
+                    if (n[i][j] % k == 0) { dem++ };
+                }
+                if (dem == 0) { songuyento += n[i][j] + "   ;   ";
+                tongso+=1; }
+            }
+        }
+        document.write("Có " +tongso+ " số nguyên tố có trong mảng là: " + songuyento + "<br>")
+        
+        let maxsum=0;
+        let sumrow;
+        for (let i=0;i<5;i++){
+            sumrow=0;
+            for (let j=0;j<5;j++){
+                sumrow+=n[i][j];
+            }
+            if (sumrow>maxsum){maxsum=sumrow}
+        }
+        document.write("Dòng có tổng các giá trị lớn nhất có trong mảng 2 chiều  là: " + maxsum + "<br>")
+        
+        let sumduongcheochinh=0;  
+        for (let i=0;i<5;i++){
+            sumduongcheochinh+=n[i][i];
+            };
+            
+        document.write("Tổng các giá trị của đường chéo chính có trong mảng 2 chiều  là: " + sumduongcheochinh + "<br>")
+
+        let sumduongcheophu=0;  
+        for (let i=0;i<5;i++){
+            sumduongcheophu+=n[i][4-i];
+            };
+            
+        document.write("Tổng các giá trị của đường chéo phụ có trong mảng 2 chiều  là: " + sumduongcheophu + "<br>")
+        let sumbien=0;
+        for (let i=0;i<5;i++){
+            if (i==0||i==4){
+                for (let j=0;j<5;j++){
+                    sumbien+=n[i][j];
+                }
+            } else {
+                sumbien+=n[i][0]+n[i][4];
+            }
+        }
+        document.write("Tổng các giá trị của đường biên có trong mảng 2 chiều  là: " + sumbien + "<br>")
+    </script>
+</body>
+
+</html>
